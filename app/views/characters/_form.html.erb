@@ -1,0 +1,17 @@
+<% if @character.errors.any? %>
+  <ul>
+    <% @character.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @character do |f| %>
+  <label for="character_name">Name</label>
+  <%= f.text_field :name, autofocus: true %>
+  <%= f.submit %>
+<% end %>
+
+<br>
+
+<%= link_to "Cancel", characters_path %>
